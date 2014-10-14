@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="simple-cse.makejar" default="main" basedir=".">
+	<property name="src.dir" location="src" />
+	<property name="test.dir" location="test" />
+	<property name="examples.dir" location="examples" />
+	<property name="build.dir" location="bin" />
+	<property name="dist.dir" location="dist" />
+	<property name="docs-api.dir" location="docs-api" />
+	<property name="docs-dev.dir" location="docs-dev" />
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build.dir}"/>
+	</target>
+	<target name ="clean" description="Clean all" depends="clean-bin, clean-doc-api, clean-doc-dev, clean-dist"/>
+	<target name ="clean-bin" description="Clean bin">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${build.dir}"/>
+		</delete>
+	</target>	
+	<target name ="clean-doc-api" description="Clean doc-api">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${docs-api.dir}"/>
+		</delete>
+	</target>			
+	<target name ="clean-doc-dev" description="Clean doc-dev">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${docs-dev.dir}"/>
+		</delete>
+	</target>			
+	<target name ="clean-dist" description="Clean dist">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${dist.dir}"/>
+		</delete>
+	</target>	
+	
+    <target name="compile-src" description="Compiles the project" depends="init">    	
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeAntRuntime="false" verbose="false">
+        	<compilerarg value="-Xlint:deprecation"/>
+        </javac>
+    </target>
+    <target name="compile-test" description="Compiles the project" depends="init">    	
+        <javac srcdir="${test.dir}" destdir="${build.dir}" includeAntRuntime="false" verbose="false">
+        	<compilerarg value="-Xlint:deprecation"/>
+        </javac>
+    </target>
+    <target name="compile-examples" description="Compiles the project" depends="init">    	
+        <javac srcdir="${examples.dir}" destdir="${build.dir}" includeAntRuntime="false" verbose="false">
+        	<compilerarg value="-Xlint:deprecation"/>
+        </javac>
+    </target>   
+	<target name="compile" depends="compile-src, compile-examples">
+		<description>Compile all</description>
+	</target>		
+	<target name ="makejar" description="Create a jar for the simple-cse project">
+		<jar jarfile="${dist.dir}/simple-cse.jar" basedir="bin"/>
+	</target>
+	<target name ="makejar-withCode" description="Create a jar for the simple-cse project - including source code">
+		<jar jarfile="${dist.dir}/simple-cse-source.jar">
+		    <fileset dir="${build.dir}"/>
+		    <fileset dir="${src.dir}"/>
+		</jar>		
+	</target>	
+	<target name="generate-javadoc-api">
+	    <javadoc packagenames="edu.technion.cse.*" sourcepath="${src.dir}" 
+	        destdir="${docs-api.dir}" version="true" windowtitle="Simple CSE">
+	      <doctitle><![CDATA[= Simple CSE =]]></doctitle>
+	      <bottom>
+	         <![CDATA[Copyright © 2013. All Rights Reserved.]]>
+	      </bottom>
+	      <group title="examples packages" packages="edu.technion.cse.examples.*"/>
+	      <group title="tests packages" packages="edu.technion.cse.tests.*"/>
+	    </javadoc>
+		<zip destfile="${dist.dir}/generate-javadoc-api.zip"
+		       basedir="${docs-api.dir}" />			
+	    <echo message="java doc (api) has been generated!" />
+	</target>	
+	<target name="generate-javadoc-dev">
+	    <javadoc packagenames="edu.technion.cse.*" sourcepath="${src.dir}" 
+	        destdir="${docs-dev.dir}" version="true" private="true" windowtitle="Simple CSE">
+	      <doctitle><![CDATA[= Simple CSE =]]></doctitle>
+	      <bottom>
+	         <![CDATA[Copyright © 2013. All Rights Reserved.]]>
+	      </bottom>
+	      <group title="examples packages" packages="edu.technion.cse.examples.*"/>
+	      <group title="tests packages" packages="edu.technion.cse.tests.*"/>
+	    </javadoc>
+		<zip destfile="${dist.dir}/generate-javadoc-dev.zip"
+		       basedir="${docs-dev.dir}" />		
+	    <echo message="java doc (dev) has been generated!" />
+	</target>
+	<target name="test">
+	    <property name="collector.dir" value="${build.dir}/failingTests"/>
+	    <property name="collector.class" value="FailedTests"/>
+	    <!-- Delete 'old' collector classes -->
+	    <delete>
+	        <fileset dir="${collector.dir}" includes="${collector.class}*.class"/>
+	    </delete>
+	    <!-- compile the FailedTests class if present --> 
+	    <javac srcdir="${collector.dir}" destdir="${collector.dir}"/>
+	    <available file="${collector.dir}/${collector.class}.class" property="hasFailingTests"/>
+	    <junit haltonerror="false" haltonfailure="false">
+	        <sysproperty key="ant.junit.failureCollector" value="${collector.dir}/${collector.class}"/>
+	        <classpath>
+	            <pathelement location="${collector.dir}"/>
+	        </classpath>
+	        <batchtest todir="${collector.dir}" unless="hasFailingTests">
+	            <fileset dir="${collector.dir}" includes="**/*.java" excludes="**/${collector.class}.*"/>
+	            <!-- for initial creation of the FailingTests.java -->
+	            <formatter type="failure"/>
+	            <!-- I want to see something ... -->
+	            <formatter type="plain" usefile="false"/>
+	        </batchtest>
+	        <test name="FailedTests" if="hasFailingTests">
+	            <!-- update the FailingTests.java -->
+	            <formatter type="failure"/>
+	            <!-- again, I want to see something -->
+	            <formatter type="plain" usefile="false"/>
+	        </test>
+	    </junit>
+	</target>	
+	<!--  TODO: Add clean  -->
+	<target name="main" depends="clean, compile, makejar, makejar-withCode, generate-javadoc-api, generate-javadoc-dev">
+		<description>Main target</description>
+	</target>		
+</project>

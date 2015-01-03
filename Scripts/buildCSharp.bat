@@ -1,1 +1,0 @@
-msbuild SimpleCSE\SimpleCSE.sln /t:Rebuild

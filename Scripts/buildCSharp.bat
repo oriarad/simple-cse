@@ -1,1 +1,1 @@
-msbuild SimpleCSE\SimpleCSE.sln /t:Rebuild
+msbuild CSharp\SimpleCSE.sln /t:Rebuild

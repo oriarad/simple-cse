@@ -14,6 +14,14 @@ Currently, the project contains few fetures:
 * **SimpleRSS** - a simple to use, easy API, for getting RSS content from any RSS supported web site
 * **SimpleImage** - for manipulating images using basic API, with setters/getters for each pixel  
 
+# SimpleRSS
+Code example:  
+
+![RSS-code](Resource/RSS-example-code.png)  
+
+Will produce the following output:  
+
+![RSS-code](Resource/RSS-example-output.png)
 
 # Links
 * [JIRA](https://simplecse.atlassian.net/browse/SIMPLECSE)

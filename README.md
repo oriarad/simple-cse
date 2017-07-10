@@ -15,3 +15,8 @@ Currently, the project contains few fetures:
 * SimpleImage - for manipulating images using basic API, with setters/getters for each pixel  
 
 
+# Links
+* [JIRA](https://simplecse.atlassian.net/browse/SIMPLECSE)
+* [Confluence](https://simplecse.atlassian.net/wiki/spaces/SIM)
+
+

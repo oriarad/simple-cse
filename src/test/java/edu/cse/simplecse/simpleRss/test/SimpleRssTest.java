@@ -1,8 +1,9 @@
 /**
  * 
  */
-package edu.technion.cse.simpleRss;
+package edu.cse.simplecse.simpleRss.test;
 
+import edu.cse.simplecse.simpleRss.*;
 import java.net.URL;
 
 import javax.xml.parsers.DocumentBuilder;

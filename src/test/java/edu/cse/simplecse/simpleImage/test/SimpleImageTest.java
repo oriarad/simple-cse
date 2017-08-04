@@ -1,8 +1,9 @@
 /**
  * 
  */
-package edu.technion.cse.simpleImage;
+package edu.cse.simplecse.simpleImage.test;
 
+import edu.cse.simplecse.simpleImage.*;
 import java.awt.Color;
 
 import junit.framework.TestCase;

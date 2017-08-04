@@ -1,8 +1,9 @@
 /**
  * 
  */
-package edu.technion.cse.simpleGoogleMaps;
+package edu.cse.simplecse.simpleGoogleMaps.test;
 
+import edu.cse.simplecse.simpleGoogleMaps.*;
 import junit.framework.TestCase;
 
 /**

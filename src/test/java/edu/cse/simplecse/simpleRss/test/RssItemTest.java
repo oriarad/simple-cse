@@ -1,8 +1,9 @@
 /* COPYRIGHT (C) 2012 Ori Arad. All Rights Reserved. */
 /* See LICENSE.txt for more details                  */
 
-package edu.technion.cse.simpleRss;
+package edu.cse.simplecse.simpleRss.test;
 
+import edu.cse.simplecse.simpleRss.*;
 import junit.framework.TestCase;
 
 public class RssItemTest extends TestCase {

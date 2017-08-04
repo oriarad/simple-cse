@@ -1,5 +1,6 @@
-package edu.technion.cse.simpleGoogleMaps;
+package edu.cse.simplecse.simpleGoogleMaps.test;
 
+import edu.cse.simplecse.simpleGoogleMaps.*;
 import java.awt.Color;
 
 import junit.framework.TestCase;

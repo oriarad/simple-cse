@@ -59,7 +59,7 @@ public class SimpleImageTest extends TestCase {
 	 * Test method for {@link edu.technion.cse.simpleImage.SimpleImage#load(java.lang.String)}.
 	 */
 	public void testLoad() {
-		this.si.load("testSimpleImage.bmp");
+		this.si.load("src\\test\\resources\\testSimpleImage.bmp");
 		this.si.showImage();
 		assertEquals(200, this.si.getWidth());
 	}

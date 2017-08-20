@@ -14,6 +14,23 @@ Currently, the project contains few fetures:
 * **SimpleRSS** - a simple to use, easy API, for getting RSS content from any RSS supported web site
 * **SimpleImage** - for manipulating images using basic API, with setters/getters for each pixel  
 
+# First Example
+Just to make sure everything is alive - 
+* Create a new java project in your favorite IDE
+* Add the **SimpleCSE** JAR file to the project
+* Create new class "*TrySimpleImage*", and try the following code:
+``` java
+import edu.cse.simplecse.simpleImage.*;
+
+public class TrySimpleImage {
+  public static void main(String[] args) {
+    SimpleImage si = new SimpleImage();
+    si.loadUrl("https://raw.githubusercontent.com/oriarad/simple-cse/master/screenshots/SimpleImage-example-output1.png");
+    si.showImage();
+  }
+}
+```
+
 # SimpleRSS
 Code example:  
 

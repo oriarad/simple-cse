@@ -1,14 +1,12 @@
-package edu.technion.cse.examples.general;
+package examples.simpleCse;
 
-import edu.technion.cse.simpleGoogleMaps.SimpleGoogleMaps;
-import edu.technion.cse.simpleImage.SimpleImage;
-
+import edu.cse.simplecse.simpleGoogleMaps.SimpleGoogleMaps;
+import edu.cse.simplecse.simpleImage.SimpleImage;
 
 public class ExampleSimpleCse1 {
 
 	public static void main(String[] args) {
 		exmaple1();
-
 	}
 	
 	public static void exmaple1() {

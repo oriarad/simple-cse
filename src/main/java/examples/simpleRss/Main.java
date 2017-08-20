@@ -1,8 +1,7 @@
-package edu.technion.cse.examples.simpleRss;
+package examples.simpleRss;
 
 import javax.xml.parsers.ParserConfigurationException;
-
-import edu.technion.cse.simpleRss.SimpleRss;
+import edu.cse.simplecse.simpleRss.SimpleRss;
 
 /**
  *

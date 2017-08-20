@@ -1,9 +1,9 @@
-package edu.technion.cse.examples.simpleGoogleMaps;
+package examples.simpleGoogleMaps;
 
 import java.awt.Color;
-import edu.technion.cse.simpleGoogleMaps.Marker;
-import edu.technion.cse.simpleGoogleMaps.Path;
-import edu.technion.cse.simpleGoogleMaps.SimpleGoogleMaps;
+import edu.cse.simplecse.simpleGoogleMaps.Marker;
+import edu.cse.simplecse.simpleGoogleMaps.Path;
+import edu.cse.simplecse.simpleGoogleMaps.SimpleGoogleMaps;
 
 /**
  *

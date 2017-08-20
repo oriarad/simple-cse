@@ -1,7 +1,7 @@
-package edu.technion.cse.examples.simpleImage;
+package examples.simpleImage;
 
 import java.awt.Color;
-import edu.technion.cse.simpleImage.SimpleImage;
+import edu.cse.simplecse.simpleImage.SimpleImage;
 
 public class Main {
 	

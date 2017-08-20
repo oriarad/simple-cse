@@ -23,11 +23,11 @@ Just to make sure everything is alive -
 import edu.cse.simplecse.simpleImage.*;
 
 public class TrySimpleImage {
-	public static void main(String[] args) {
-		SimpleImage si = new SimpleImage();
-		si.loadUrl("https://raw.githubusercontent.com/oriarad/simple-cse/master/screenshots/SimpleImage-example-output1.png");
-		si.showImage();
-	}
+  public static void main(String[] args) {
+    SimpleImage si = new SimpleImage();
+    si.loadUrl("https://raw.githubusercontent.com/oriarad/simple-cse/master/screenshots/SimpleImage-example-output1.png");
+    si.showImage();
+  }
 }
 ```
 
